@@ -13,13 +13,18 @@
           ¿Cómo recargo mi saldo virtual?
         </button>
         <p class="my-2 text-gray-500">
-          Código para cargar tu saldo: <span class="font-semibold text-aqua">123456</span>
+          Código para cargar tu saldo:
+          <span class="font-semibold text-aqua">{123456}</span>
         </p>
         <hr />
       </div>
-      <ul>
+      <ul class="my-5">
         <li>
-          <button class="block w-full mb-3 text-black text-start btn">Recargas</button>
+          <nuxt-link to="/recharge"
+            ><button class="block w-full mb-3 text-black text-start btn">
+              Recargas
+            </button></nuxt-link
+          >
         </li>
         <li>
           <button class="block w-full mb-3 text-black text-start btn">
