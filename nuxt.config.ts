@@ -23,11 +23,12 @@ export default defineNuxtConfig({
       },
     ],
     [
-      "@vite-pwa/nuxt",
+      "@kevinmarrec/nuxt-pwa",
       {
         workbox: {
           navigateFallback: "/",
         },
+        registerType: "autoUpdate",
         devOptions: {
           enabled: true,
           type: "module",
@@ -39,17 +40,17 @@ export default defineNuxtConfig({
           description: "Culqi PWA",
           icons: [
             {
-              src: "culqi-192x192.png",
+              src: "logo_white.svg",
               sizes: "192x192",
               type: "image/png",
             },
             {
-              src: "culqi-512x512.png",
+              src: "logo_white.svg",
               sizes: "512x512",
               type: "image/png",
             },
             {
-              src: "culqi-512x512.png",
+              src: "logo_white.svg",
               sizes: "512x512",
               type: "image/png",
             },
