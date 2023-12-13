@@ -7,7 +7,12 @@
     </div>
     <main class="container p-3 px-5 mx-auto">
       <div class="flex flex-col gap-y-3">
-        <p class="text-gray-500">Saldo Virtual</p>
+        <p class="text-gray-500">
+          Saldo Virtual
+          <Icon
+            src="https://api.iconify.design/material-symbols:error-circle-rounded-outline-sharp.svg"
+          />
+        </p>
         <span class="text-3xl font-bold text-black">S/150.00</span>
         <button class="p-2 border-gray-400 h-min min-h-min w-max btn btn-outline">
           ¿Cómo recargo mi saldo virtual?
