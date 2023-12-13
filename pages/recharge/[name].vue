@@ -66,6 +66,21 @@
         </button>
       </div>
     </form>
+    <dialog id="voucher" class="modal">
+      <div class="border-[8px] border-dotted modal-box">
+        <form method="dialog">
+          <button
+            class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2 text-aqua w-max"
+          >
+            <span class="flex items-center justify-between">Cerrar ✕</span>
+          </button>
+        </form>
+
+        <p class="py-4 text-xl font-bold text-center">
+          Recarga <span class="text-aqua"> exitosa</span>
+        </p>
+      </div>
+    </dialog>
   </div>
 </template>
 
@@ -81,7 +96,7 @@ const phone = ref<number>();
 const amount = ref<number>();
 
 const makeRecharge = () => {
-  console.log(phone.value, amount.value);
+  document.getElementById("voucher")?.showModal();
 };
 </script>
 <style lang="postcss" scoped>

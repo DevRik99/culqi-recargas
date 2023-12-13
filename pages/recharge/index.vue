@@ -29,36 +29,41 @@
           >
         </div>
       </div>
-      <ul class="my-5">
-        <li v-for="companie of companies" :key="companie.name">
+      <ul class="my-5" v-if="!loading">
+        <li v-for="provider of providers" :key="provider._id">
           <div class="flex items-center justify-between">
             <nuxt-link
               class="w-full"
-              :to="'/recharge/' + companie.name + '?logo=' + companie.logo"
+              :to="'/recharge/' + provider.company + '?logo=' + provider.image"
             >
               <button class="items-center justify-start w-full text-black btn btn-ghost">
                 <div class="avatar">
                   <div class="w-8 rounded">
                     <img
                       class="object-contain object-center"
-                      :src="companie.logo"
-                      :alt="companie.name"
+                      :src="provider.image"
+                      :alt="provider.company"
                     />
                   </div>
                 </div>
-                {{ companie.name }}
+                {{ provider.company }}
               </button>
             </nuxt-link>
             <button
               class="bg-transparent border-none shadow-none hover:bg-transparent btn"
-              @click="toggleFavorite(companie.name)"
             >
-              <Icon
-                :name="companie.favorite ? 'ic:outline-star' : 'ic:round-star-border'"
-                size="28"
-                :color="companie.favorite ? 'yellow' : '#d1d5db'"
-              />
+              <Icon name="ic:round-star-border" size="28" color="#d1d5db" />
             </button>
+          </div>
+          <hr />
+        </li>
+      </ul>
+      <ul class="my-5" v-else>
+        <li v-for="key of 10" :key="key" class="mt-2">
+          <div class="flex items-center justify-between">
+            <button
+              class="items-center justify-start w-full text-black btn btn-ghost skeleton"
+            ></button>
           </div>
           <hr />
         </li>
@@ -68,7 +73,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+const { getProviders, loading, providers } = useProviders();
+getProviders();
+
 const options = [
   {
     name: "Todas",
@@ -86,40 +93,6 @@ const options = [
     active: false,
   },
 ];
-const companies = ref([
-  {
-    name: "Bitel",
-    logo: "https://planesbitel.com/wp-content/uploads/2022/12/bitel.png",
-    favorite: false,
-  },
-  {
-    name: "Claro",
-    logo: "https://seeklogo.com/images/C/CLARO-logo-B5C0FF5F47-seeklogo.com.png",
-    favorite: false,
-  },
-  {
-    name: "Directv",
-    logo:
-      "https://c3.klipartz.com/pngpicture/301/38/sticker-png-tv-channel-icons-pack-directv-color-thumbnail.png",
-    favorite: false,
-  },
-  {
-    name: "Entel",
-    logo: "https://i.pinimg.com/originals/82/08/1a/82081a17900bb85c7b09a33b1366ad81.png",
-    favorite: false,
-  },
-  {
-    name: "Netflix",
-    logo: "https://i.pinimg.com/originals/e9/88/40/e9884007598e2e329d53bb448ede4084.png",
-    favorite: false,
-  },
-]);
-const toggleFavorite = (name: string) => {
-  const companie = companies.value.find((companie) => companie.name === name);
-  if (companie) {
-    companie.favorite = !companie.favorite;
-  }
-};
 </script>
 <style lang="postcss" scoped>
 :deep(.avatar img) {
