@@ -25,11 +25,18 @@ export default defineNuxtConfig({
     [
       "@vite-pwa/nuxt",
       {
-        registerType: "autoUpdate",
+        workbox: {
+          navigateFallback: "/",
+        },
+        devOptions: {
+          enabled: true,
+          type: "module",
+        },
         manifest: {
           name: "Culqi PWA",
           short_name: "CulqiPWA",
           theme_color: "#ffffff",
+          description: "Culqi PWA",
           icons: [
             {
               src: "culqi-192x192.png",
