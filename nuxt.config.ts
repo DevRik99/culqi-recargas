@@ -2,18 +2,24 @@
 export default defineNuxtConfig({
   devtools: {
     enabled: true,
-
     timeline: {
       enabled: true,
     },
   },
   modules: [
-    ["@nuxtjs/tailwindcss", { viewer: false }],
+    [
+      "@nuxtjs/tailwindcss",
+      {
+        viewer: false,
+      },
+    ],
     [
       "@nuxtjs/color-mode",
       {
         preference: "light",
         fallback: "light",
+        dataValue: "theme",
+        classSuffix: "",
       },
     ],
     [

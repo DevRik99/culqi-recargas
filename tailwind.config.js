@@ -2,9 +2,19 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      "colors": {
+        "main": "#141414",
+        "aqua": "#47bab6"
+      }
+    },
   },
   plugins: [require("daisyui")],
-  darkMode: "class",
+  // darkMode: "class",
+  // daisyui: {
+  //   themes: [
+  //     "light",
+  //   ],
+  // }
 }
 
